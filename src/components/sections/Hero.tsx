@@ -23,7 +23,7 @@ export default function Hero() {
           style={{ letterSpacing: "-0.02em" }}
         >
           Scale smarter with{" "}
-          <span className="text-primary">AI marketing</span>
+          <span className="text-primary">AI marketing Dev</span>
         </h1>
 
         <p className="text-lg text-on-surface-muted max-w-2xl mx-auto mb-12 leading-relaxed">
