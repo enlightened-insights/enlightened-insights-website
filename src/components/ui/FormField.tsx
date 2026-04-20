@@ -27,7 +27,7 @@ export default function FormField(props: FormFieldProps) {
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label className="text-xs font-semibold uppercase tracking-widest text-on-surface-muted">
+      <label className="text-xs font-bold uppercase tracking-widest text-primary">
         {label}
       </label>
       {as === "textarea" ? (

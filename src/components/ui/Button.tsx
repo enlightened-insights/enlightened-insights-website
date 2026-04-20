@@ -11,12 +11,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  // Primary: primary_container bg → primary on hover ("lighting up")
   primary:
     "bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary",
-  // Secondary: glassmorphic + ghost border
   secondary:
-    "text-primary hover:text-on-primary-container hover:bg-primary-container",
+    "bg-surface-variant/20 backdrop-blur text-primary ring-1 ring-primary/30 hover:text-on-primary-container hover:bg-primary-container",
   ghost: "text-on-surface-muted hover:text-on-surface",
 };
 
@@ -35,27 +33,16 @@ export default function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const isSecondary = variant === "secondary";
-
   return (
     <button
       {...props}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:opacity-50 disabled:cursor-not-allowed",
         variantClasses[variant],
         sizeClasses[size],
-        isSecondary && "ring-1 ring-primary/30",
         className
       )}
-      style={
-        isSecondary
-          ? {
-              background: "rgba(26,46,46,0.20)",
-              backdropFilter: "blur(8px)",
-            }
-          : undefined
-      }
     >
       {loading && (
         <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">

@@ -1,7 +1,7 @@
 import type { ContactFormData } from "@/types/contact";
 
 const brand = {
-  color: "#2563eb",
+  color: "#00818a",
   name: "Enlightened Insights",
 };
 
