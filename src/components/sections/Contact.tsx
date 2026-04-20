@@ -50,8 +50,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-32 bg-surface-low">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="bg-surface-lowest p-12 md:p-20 rounded-lg relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="bg-surface-lowest p-6 sm:p-10 md:p-20 rounded-lg relative overflow-hidden">
           {/* Decorative angled background element */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
 
