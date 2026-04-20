@@ -1,424 +1,289 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en" style="scroll-behavior: smooth;"><head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Enlightened Insights Consulting | AI Marketing Excellence</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-          tailwind.config = {
-            darkMode: "class",
-            theme: {
-              extend: {
-                "colors": {
-                        "on-secondary-fixed": "#002022",
-                        "tertiary-container": "#497d7d",
-                        "on-secondary": "#003739",
-                        "secondary-fixed": "#75f5fd",
-                        "surface-container-highest": "#2a3737",
-                        "on-error-container": "#ffdad6",
-                        "inverse-primary": "#006970",
-                        "on-tertiary-container": "#f2fffe",
-                        "on-secondary-fixed-variant": "#004f53",
-                        "surface-dim": "#081616",
-                        "primary-fixed": "#93f1fb",
-                        "on-primary-fixed": "#002022",
-                        "outline": "#879394",
-                        "background": "#081616",
-                        "on-primary": "#00363b",
-                        "on-primary-fixed-variant": "#004f55",
-                        "surface-variant": "#2a3737",
-                        "surface": "#081616",
-                        "secondary-container": "#00acb4",
-                        "on-surface-variant": "#bdc9ca",
-                        "primary-container": "#00818a",
-                        "surface-bright": "#2e3c3b",
-                        "secondary-fixed-dim": "#55d8e1",
-                        "inverse-surface": "#d7e5e5",
-                        "secondary": "#55d8e1",
-                        "tertiary-fixed": "#b6ecec",
-                        "surface-container-lowest": "#041010",
-                        "on-tertiary-fixed-variant": "#154e4f",
-                        "on-primary-container": "#f4feff",
-                        "outline-variant": "#3e494a",
-                        "on-tertiary-fixed": "#002020",
-                        "on-surface": "#d7e5e5",
-                        "error": "#ffb4ab",
-                        "tertiary-fixed-dim": "#9bd0d0",
-                        "on-secondary-container": "#00393c",
-                        "tertiary": "#9bd0d0",
-                        "surface-container-low": "#111e1e",
-                        "on-tertiary": "#003737",
-                        "surface-tint": "#76d5de",
-                        "surface-container": "#152222",
-                        "on-error": "#690005",
-                        "on-background": "#d7e5e5",
-                        "primary-fixed-dim": "#76d5de",
-                        "surface-container-high": "#1f2c2c",
-                        "primary": "#76d5de",
-                        "inverse-on-surface": "#263333",
-                        "error-container": "#93000a"
-                },
-                "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                },
-                "fontFamily": {
-                        "headline": ["Manrope"],
-                        "body": ["Manrope"],
-                        "label": ["Manrope"]
-                }
-              },
-            }
-          }
-        </script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-surface": "#afedf3", "primary-container": "#00818a", "secondary-container": "#006c51", "surface-container-high": "#002f33", "surface-container-lowest": "#001113", "surface-container": "#002427", "on-tertiary-container": "#fefbff", "on-secondary": "#003829", "secondary-fixed-dim": "#82d7b6", "surface-container-highest": "#003b3f", "surface-bright": "#004044", "on-tertiary-fixed-variant": "#3f465c", "surface-container-low": "#002022", secondary: "#82d7b6", "on-primary": "#00363b", "tertiary-fixed": "#dae2fd", "surface-variant": "#003b3f", "primary-fixed-dim": "#76d5de", tertiary: "#bec6e0", "on-background": "#afedf3", "on-primary-fixed": "#002022", "inverse-surface": "#afedf3", "error-container": "#93000a", "tertiary-fixed-dim": "#bec6e0", outline: "#879394", "outline-variant": "#3e494a", background: "#001719", "on-error-container": "#ffdad6", "on-secondary-fixed-variant": "#00513c", "inverse-primary": "#006970", "primary-fixed": "#93f1fb", "on-surface-variant": "#bdc9ca", "on-secondary-container": "#94e9c8", "surface-dim": "#001719", error: "#ffb4ab", "on-tertiary-fixed": "#131b2e", "tertiary-container": "#6c748b", "on-tertiary": "#283044", "on-primary-container": "#f4feff", "on-secondary-fixed": "#002116", "on-error": "#690005", "inverse-on-surface": "#00363a", surface: "#001719", primary: "#76d5de", "secondary-fixed": "#9df4d1", "on-primary-fixed-variant": "#004f55", "surface-tint": "#76d5de"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, fontFamily: {headline: ["Manrope"], body: ["Inter"], label: ["Inter"], display: "Manrope"}}}};</script>
 <style>
-        body { font-family: 'Manrope', sans-serif; background-color: #081616; color: #d7e5e5; scroll-behavior: smooth; }
+        body { font-family: 'Manrope', sans-serif; background-color: #081616; color: #d7e5e5; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .tonal-shift-surface-variant { background-color: rgba(42, 55, 55, 0.6); }
+        .glass-effect { backdrop-filter: blur(12px); }
+        .no-line { border: none !important; }
     </style>
 </head>
-<body class="bg-surface text-on-surface overflow-x-hidden">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-[#081616]/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 max-w-full mx-auto shadow-2xl shadow-[#041010]/40 border-b border-outline-variant/10">
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#081616]/60 backdrop-blur-xl shadow-xl shadow-[#041010]/40">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
 <div class="flex items-center gap-3">
-<img alt="Enlightened Insights Logo" class="h-8 w-auto rounded-sm" src="https://lh3.googleusercontent.com/aida/ADBb0uhPynmS3zi6qLNFZdxRWmE3TLSCpkJPahDjzlJNEuQtd5AGgzwu4MA2no5O-voTEsu3CbT3-G7ByJiygQCQZphgnCVWRVMlMM8IQ8MMNEnpwXpE5R2KyWarPUaDH4oJrB7PjmmA3H5Db8hvEtTsazxXLeC2vPZeqrk7xw6grWsqPCh-SXoh224sHuPlQQcP92ch99jg0PFL0anNc3rnxgmqbwJdczERm-cNMyp6vn3CMdwea2xlf5RIxou249jiyKLGGOsDhWk8MA"/>
-<span class="text-xl font-bold tracking-tighter text-[#d7e5e5]">Enlightened Insights</span>
+<img alt="Enlightened Insights Logo" class="h-8 w-auto" src="./images/logo.png"/>
+<span class="text-xl font-bold tracking-tighter text-[#d7e5e5] font-headline">ENLIGHTENED INSIGHTS</span>
 </div>
-<div class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-tight text-sm uppercase font-semibold">
-<a class="text-[#d7e5e5]/80 hover:text-[#76d5de] transition-colors duration-300" href="#services">Solutions</a>
-<a class="text-[#d7e5e5]/80 hover:text-[#76d5de] transition-colors duration-300" href="#intro">AI Marketing</a>
-<a class="text-[#d7e5e5]/80 hover:text-[#76d5de] transition-colors duration-300" href="#testimonials">Case Studies</a>
-<a class="text-[#d7e5e5]/80 hover:text-[#76d5de] transition-colors duration-300" href="#about">About</a>
+<div class="hidden md:flex items-center space-x-8 font-manrope tracking-tight font-medium text-sm">
+<a class="text-[#d7e5e5]/70 hover:text-[#76d5de] transition-colors duration-300" href="#about">About</a>
+<a class="text-[#d7e5e5]/70 hover:text-[#76d5de] transition-colors duration-300" href="#services">Services</a>
+<a class="text-[#d7e5e5]/70 hover:text-[#76d5de] transition-colors duration-300" href="#testimonials">Testimonials</a>
+<a class="text-[#d7e5e5]/70 hover:text-[#76d5de] transition-colors duration-300" href="#contact">Contact</a>
 </div>
-<a class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary transition-all scale-95 active:scale-90 inline-block" href="#contact">
-            Book a Strategy Call
-        </a>
+<a class="bg-primary-container text-on-primary-container px-5 py-2 rounded-lg font-bold text-sm hover:bg-primary transition-all active:scale-95 duration-200" href="#contact">
+                Get in Touch
+            </a>
+</div>
 </nav>
+<main>
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center pt-20 px-8 overflow-hidden" id="hero">
-<div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-surface-container-low to-transparent opacity-40 z-0"></div>
-<div class="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-<div class="space-y-8">
-<div class="inline-block px-4 py-1.5 bg-surface-bright border border-outline-variant/15 text-primary rounded-lg text-xs font-bold uppercase tracking-widest">
-                    Architecting the Future of Growth
-                </div>
-<h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] text-on-surface">
-                    Converging <br/><span class="text-[#76d5de]">Marketing</span><br/>with Pure AI.
-                </h1>
-<p class="text-lg text-on-surface-variant max-w-lg font-light leading-relaxed">
-                    Precision-engineered growth for the digital-first enterprise. We blend computational intelligence with strategic influence to scale your impact.
-                </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-primary transition-all" href="#contact">
-                        Book a Strategy Call
-                        <span class="material-symbols-outlined">north_east</span>
-</a>
-<a class="bg-surface-variant/20 border border-primary/20 text-primary px-8 py-4 rounded-lg font-bold hover:bg-surface-variant/40 transition-all" href="#about">
-                        View Methodology
-                    </a>
+<section class="relative min-h-[921px] flex items-center overflow-hidden" id="top">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="absolute inset-0 bg-gradient-to-br from-surface via-surface-container-low to-surface-container-lowest"></div>
+<img class="w-full h-full object-cover mix-blend-overlay" alt="Abstract digital network representing AI connectivity" src="./images/hero-bg.png"/>
 </div>
-</div>
-<div class="relative">
-<div class="aspect-square bg-surface-container-high rounded-xl overflow-hidden relative shadow-2xl">
-<img alt="Abstract architectural rendering of futuristic neural network nodes" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOYUMRUC3xi-P0acIRGTQkxQ63wnZS4nxT0YwAZ9gLGHZyDJiPbwHKSduVdaCi2poG0QncrzF4lbgBUdVbADPt9Bt880-nsXjbKuxfJTuZPpgJDwgkdT_VleYjvdUp9kBDp82WYl4gdS_UNKZP2osoHi7OOWJv7zSGEWy9QTOnf7US3JHteT2jLfHRxTpobz-eLZNgpndWKfOUuqbZvHGQKqDmVcS0VRwjjVYj3IjAoMo5YUcjNcVrKuFBL4n-UmmIw1gcGhVizEQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60"></div>
-</div>
-<!-- Float card -->
-<div class="absolute -bottom-6 -left-12 bg-surface-bright/80 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/15 shadow-2xl hidden lg:block">
-<div class="flex items-center gap-4">
-<div class="bg-primary-container p-3 rounded-lg">
-<span class="material-symbols-outlined text-on-primary-container">insights</span>
-</div>
-<div>
-<div class="text-2xl font-bold">+240%</div>
-<div class="text-xs text-on-surface-variant uppercase tracking-tighter">Avg. Automation ROI</div>
-</div>
-</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<span class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-surface-container-highest text-primary border-l-2 border-primary">Future of Growth</span>
+<h1 class="text-6xl md:text-8xl font-extrabold font-headline tracking-tighter leading-none mb-8 text-on-surface">Take Control Of Your Marketing Data<br/></h1>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-10 font-light max-w-xl">
+                        Running marketing campaigns without data is like driving with a blindfold on. Let us take your complex, disjointed, and incomplete data systems and build a symphony of actionable insight </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary transition-all shadow-lg shadow-primary-container/20" href="#services">
+                            Explore Services
+                        </a>
+<a class="bg-surface-variant/20 backdrop-blur-md border border-primary/20 text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-surface-bright transition-all" href="#contact">
+                            Contact Us
+                        </a>
 </div>
 </div>
 </div>
 </section>
-<!-- Summary / Intro Section -->
-<section class="py-32 bg-surface-container-lowest" id="intro">
-<div class="container mx-auto px-8">
-<div class="max-w-4xl">
-<h2 class="text-4xl font-bold tracking-tight mb-12 border-l-4 border-primary pl-8">
-                    Bridging the chasm between creative intuition and autonomous precision.
-                </h2>
-<div class="grid md:grid-cols-2 gap-12">
-<p class="text-on-surface-variant leading-relaxed text-lg">
-                        Enlightened Insights was born from a singular realization: modern marketing is no longer a battle of spend, but a battle of systems. We engineer the bridge between high-concept creative and the technical infrastructure of AI automation.
-                    </p>
-<p class="text-on-surface-variant leading-relaxed text-lg">
-                        Our mission is to empower the digital-first enterprise with structural integrity in their marketing stack, ensuring every interaction is fueled by predictive data and every workflow is optimized for maximum efficiency.
-                    </p>
+<!-- About Section -->
+<div id="about"></div>
+<!-- Services Section -->
+<section class="py-32 bg-surface-container-lowest" id="services">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20 text-center max-w-2xl mx-auto">
+<h2 class="text-5xl font-extrabold font-headline mb-6 tracking-tighter text-on-surface">Our Services</h2>
+<p class="text-on-surface-variant"><br/></p>
 </div>
-</div>
-</div>
-</section>
-<!-- Services Bento Grid -->
-<section class="py-32 bg-surface" id="services">
-<div class="container mx-auto px-8">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-<div>
-<span class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Our Capabilities</span>
-<h2 class="text-5xl font-extrabold tracking-tight">Core Disciplines</h2>
-</div>
-<div class="text-left md:text-right max-w-sm text-on-surface-variant text-sm">
-                    Strategic interventions designed to overhaul the traditional marketing pipeline through technical superiority.
-                </div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="grid md:grid-cols-3 gap-8">
 <!-- Service 1 -->
-<div class="md:col-span-8 bg-surface-container hover:bg-surface-container-high transition-colors p-10 rounded-xl flex flex-col justify-between min-h-[400px]">
-<div>
-<span class="material-symbols-outlined text-4xl text-primary mb-6">bolt</span>
-<h3 class="text-3xl font-bold mb-4">AI-Driven Campaign Optimization</h3>
-<p class="text-on-surface-variant text-lg max-w-xl">
-                            Real-time adjustment of cross-channel deployments using Bayesian modeling to maximize conversion probability and minimize CAC.
-                        </p>
+<div class="group p-10 bg-surface-container-low rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="architecture">architecture</span>
 </div>
-<div class="pt-8">
-<img alt="Complex data visualization screen" class="h-32 w-full object-cover rounded-lg opacity-40 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnPCUqD_4JKPa-yhVKd5CzWctN2o9vA1qwIgTndp3DEf8GPpMN9XDeTCWztdhMVz0U5hXxDcsiZ6iPoGK9-56WwVSUuGGS9YVgpZpXpgeKSuy_O_uKaJdEDhJi9MHO2p9YN5ANCvaOXDoX5RQ3wl_8Ka922r_sy2TZ2T3ZhLDHPXyyde5IWfIYgU1fzsaJn1ZvJ1qULg2laAftfXinad2mx4s7Jyl-vQYkV2p5uSfxnEfKYl3CIgx4GqUgj1avwEig4AvgFgmcx4o"/>
-</div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="hub">hub</span>
+<h3 class="text-2xl font-bold mb-4">Integrated Dashboards</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Combine data from Meta Ads, Google Ads, Google Analytics and more into interactive reports the whole marketing team can enjoy</p>
 </div>
 <!-- Service 2 -->
-<div class="md:col-span-4 bg-surface-container-high p-10 rounded-xl flex flex-col justify-between">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">alt_route</span>
-<div>
-<h3 class="text-2xl font-bold mb-4">Automated Workflows</h3>
-<p class="text-on-surface-variant">
-                            Remove manual bottlenecks with bespoke automation layers that connect your CRM, ESP, and analytics directly into actionable triggers.
-                        </p>
-</div>
-<div class="mt-8 border-t border-outline-variant/15 pt-6 flex justify-between items-center cursor-pointer hover:text-primary transition-colors">
-<span class="text-xs font-bold uppercase tracking-widest">Learn More</span>
-<span class="material-symbols-outlined">arrow_forward</span>
-</div>
+<div class="group p-10 bg-surface-container rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="database">database</span>
+<h3 class="text-2xl font-bold mb-4">Data Pipelines</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Connect data from disparate systems into unified data lakes for easy control, integration, and management</p>
 </div>
 <!-- Service 3 -->
-<div class="md:col-span-4 bg-surface-bright p-10 rounded-xl flex flex-col justify-between">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">query_stats</span>
-<div>
-<h3 class="text-2xl font-bold mb-4">Predictive Customer Insights</h3>
-<p class="text-on-secondary-container">
-                            Anticipate churn and LTV trends before they manifest, allowing for proactive retention strategies based on behavioral patterns.
-                        </p>
+<div class="group p-10 bg-surface-container-low rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="smart_toy">smart_toy</span>
+<h3 class="text-2xl font-bold mb-4">AI Automation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Give your team time back for the things that matter by automating repetitive tasks </p>
 </div>
+<!-- Service 4 -->
+<div class="group p-10 bg-surface-container rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="text-2xl font-bold mb-4">Website Tagging</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Track every click and page on your website to understand where your customers get stuck on their conversion journey</p>
 </div>
-<!-- Service 4 - Large Image/CTA -->
-<div class="md:col-span-8 bg-primary-container/20 border border-primary/10 p-10 rounded-xl flex items-center relative overflow-hidden group">
-<div class="relative z-10 max-w-md">
-<h3 class="text-3xl font-bold mb-4">Ready to architect your growth?</h3>
-<p class="text-on-surface mb-8">Let's build the technical foundation your marketing team deserves.</p>
-<a class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold transition-transform group-hover:scale-105 inline-block text-center" href="#contact">Request a Tech Audit</a>
+<!-- Service 5 -->
+<div class="group p-10 bg-surface-container-low rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="gavel">gavel</span>
+<h3 class="text-2xl font-bold mb-4">Privacy &amp; Security</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Guidance for GDPR, PECR, CCPR and all the other acronyms for the rules digital advertisers needs to follow to stay compliant</p>
 </div>
-<div class="absolute right-0 top-0 h-full w-1/2 opacity-20 group-hover:opacity-40 transition-opacity">
-<img alt="Global digital connection lines" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBpP5y70rR9cj0bd9ayhWxOL84Mk3-rbhEFxyVYYQWGr13QI4CtLBkKMuXv1AwynJP980TTXME8RqjVY8shXQl2z2pVE6zhSHtaBihQs-NyOU39BrUyAhGIU81pJ4105acBen5g2YwL8D1_C9dcebwVbvZP8ewRR0ALJaeLE7D1xJWdc_GtdMNglO8G8fHp2sTXQH3oWEUz5MaUH_KY4w0CIhxvfRXNngNPWrTS1JLtOJ5I4FsTeZLG97cACd9Tw6_nC77fOxuku8"/>
-</div>
+<!-- Service 6 -->
+<div class="group p-10 bg-surface-container rounded-lg hover:bg-surface-bright transition-all duration-500 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" data-icon="model_training">model_training</span>
+<h3 class="text-2xl font-bold mb-4">Training &amp; Workshops</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Upskilling your internal teams to master prompt engineering and advanced context management</p>
 </div>
 </div>
 </div>
 </section>
-<!-- About Section: Methodology -->
-<section class="py-32 bg-surface-container-low" id="about">
-<div class="container mx-auto px-8 grid md:grid-cols-2 gap-24 items-center">
-<div class="order-2 md:order-1">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-4">
-<div class="aspect-square bg-surface-container-high rounded-xl overflow-hidden shadow-xl">
-<img alt="Modern high-end office interior" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9JMrzJ-YDkHLSpiHRS5lzwH_9zNN2cULU3UaqI9pX3Joc8PlBS8iBBTBf5t4JKCHqEsWtpWiMTGF13M1JGpvQYIpslKlLs38dG5DzRIsZkHXuljKsgg0N2Fk9aKCoNjSG0v-tb7tO8OyIab48SBzLousv8gnjkRf33e2l7Adzo06SufnH6uPN110ZvOsOHIrvttFlDNbv0-i6fSXuRYIPXoH4kMj_vTK9gAwOwUvFtdVaasksS8deUd14chOyimT7eZ4uyXTB5eQ"/>
-</div>
-<div class="h-48 bg-primary-container rounded-xl flex items-end p-6">
-<span class="text-3xl font-black text-on-primary-container leading-none">STRATEGY<br/>DRIVEN.</span>
-</div>
-</div>
-<div class="space-y-4 pt-12">
-<div class="h-48 bg-surface-bright rounded-xl flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-primary" data-weight="fill">architecture</span>
-</div>
-<div class="aspect-square bg-surface-container-highest rounded-xl overflow-hidden shadow-xl">
-<img alt="Geometric building exterior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByfar8kui7afBj515BJ8e0eRWMWe8Ocp-KwlhS_WwuNWBz0sM5lz-1ZK6ejDlsjV9d1XCx-l7XwwbyHcyBAYCqT-MvgQ6HWVBEZH2XHfpt1PTZTZgYyoKNmbtl7Mo7v7gwpWfU3B48LqPM61gl5tYl5joErxpjz37rOQEhO3DXHMMxxBvdhq-qJyZ82Fu-m4HL2HU6ka6KpIa38tly-SObQDfNQMXLC9vqRk_FpGXTV8mT_Og9MQk-r3p6fYStjGy4i9deKdmEesw"/>
-</div>
-</div>
-</div>
-</div>
-<div class="order-1 md:order-2 space-y-8">
-<span class="text-primary font-bold text-sm tracking-widest uppercase">The Methodology</span>
-<h2 class="text-5xl font-extrabold tracking-tight leading-tight">The Synergy of Intelligence and Influence</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed">
-                    We don't believe in "plug-and-play" AI. True enterprise growth requires a custom-fit architecture. Our process dissects your existing influence patterns and reinforces them with computational intelligence. 
-                </p>
-<ul class="space-y-6">
-<li class="flex gap-4">
-<span class="text-primary font-bold">01/</span>
-<div>
-<h4 class="font-bold text-on-surface">Structural Audit</h4>
-<p class="text-sm text-on-surface-variant">Comprehensive analysis of current data silos and marketing inefficiency.</p>
-</div>
-</li>
-<li class="flex gap-4">
-<span class="text-primary font-bold">02/</span>
-<div>
-<h4 class="font-bold text-on-surface">Neural Integration</h4>
-<p class="text-sm text-on-surface-variant">Deploying bespoke AI models tailored to your specific market segment.</p>
-</div>
-</li>
-<li class="flex gap-4">
-<span class="text-primary font-bold">03/</span>
-<div>
-<h4 class="font-bold text-on-surface">Infinite Scaling</h4>
-<p class="text-sm text-on-surface-variant">Continuous loop optimization where the system learns from every touchpoint.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
+<!-- Testimonials -->
 <section class="py-32 bg-surface" id="testimonials">
-<div class="container mx-auto px-8">
-<h2 class="text-center text-4xl font-bold mb-20 tracking-tight">Authority &amp; Trust</h2>
-<div class="grid md:grid-cols-2 gap-8">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-3 gap-6">
 <!-- Testimonial 1 -->
-<div class="bg-surface-container-lowest p-10 rounded-xl relative border-t-2 border-primary/20">
-<span class="material-symbols-outlined text-primary-container text-5xl opacity-30 absolute top-6 right-6">format_quote</span>
-<p class="text-xl italic text-on-surface mb-8 leading-relaxed">
-                        "Enlightened Insights didn't just give us a tool; they gave us a foundation. Our campaign efficiency increased by 60% within the first quarter of deployment. This is the new standard for technical marketing."
-                    </p>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Marcus Sterling" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Nq7miQ5iG5FxZOo3xj6NeyLYL0e1Wx0axK4noqsp7zmYR0BknErMylaesrYqTeYj7y5G24P3mTmn-guNeCE85hZZ1keVjSffwzwGN2WJUxCoi3lCKOeEbY388GQ9QZUflVxqxyg3eMRn7Vcwzj3ySWQGt9v33dDD2DwzYeTOP07orS709tXeICu0hpj1Ib6FIJCOJ2KyadbVVSffk3ymz4AYVin8Sle9lJT-7SXTWqHvIoCcn1q3YSeW-DsuZ2EA0mNUfNsHDWM"/>
+<div class="p-8 bg-surface-container-high rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="italic text-on-surface mb-6 font-light leading-relaxed">"Jeremy is an excellent digital analytics craftsman and AI specialist. We had an excellent experience working with him on multiple projects."</p>
 </div>
 <div>
-<div class="font-bold">Marcus Sterling</div>
-<div class="text-xs uppercase tracking-tighter text-on-surface-variant font-semibold">CMO, NexaCorp Systems</div>
-</div>
+<p class="font-bold text-sm">Janus Yi</p>
+<p class="text-primary text-[10px] uppercase tracking-widest">CMO, Genuine Tea</p>
 </div>
 </div>
 <!-- Testimonial 2 -->
-<div class="bg-surface-container-lowest p-10 rounded-xl relative border-t-2 border-primary/20">
-<span class="material-symbols-outlined text-primary-container text-5xl opacity-30 absolute top-6 right-6">format_quote</span>
-<p class="text-xl italic text-on-surface mb-8 leading-relaxed">
-                        "Their approach to data-driven marketing is architecturally sound. We've bridged the gap between our tech leads and creative directors through their unified automation frameworks."
-                    </p>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Sarah Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChhiUNWmOBJqLYwXyAKHri77UKn44h3r6yxDkHdYik67nZcpoMYSEaCpHHJKby3zx4qH5hjANVPbAF5v1sBgbv-7lRAeHLB53hocfBoysz1Q7dZw45lAuEcCfAfyyUsNDH8blxRZqTKhaaW0ZC7zeemd5SGCYfMfLmirm_OelP9fUbQ1gCxX9uxDQB9oiGiiPhOPLn1D66cUuV2Cy6UaJWNghraEdflSAK9Hi6CiTOBfKEPw1KWNsCE0UBLrQRigZUoB7Cc3Yb2eI"/>
+<div class="p-8 bg-surface-bright rounded-lg flex flex-col justify-between -translate-y-4 md:translate-y-4">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="italic text-on-surface mb-6 font-light leading-relaxed">"Fantastic, Jeremy is a data powerhouse that will turn your data chaos into a symphony of clarity and understanding"</p>
 </div>
 <div>
-<div class="font-bold">Sarah Chen</div>
-<div class="text-xs uppercase tracking-tighter text-on-surface-variant font-semibold">VP Engineering, Lumina Digital</div>
+<p class="font-bold text-sm">Cole Lamkin</p>
+<p class="text-primary text-[10px] uppercase tracking-widest">founder, the click click company</p>
 </div>
 </div>
+<!-- Testimonial 3 -->
+<div class="p-8 bg-surface-container-high rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="italic text-on-surface mb-6 font-light leading-relaxed">"Jeremy is incredibly knowledgeable and capable within his field and I wouldn't hesitate to recommend him to any friend, family member, or colleague who was seeking to beef up their analytics/tracking/reporting infrastructure</p>
+</div>
+<div>
+<p class="font-bold text-sm">Ian Pribyl</p>
+<p class="text-primary text-[10px] uppercase tracking-widest">fractional cmo &amp; owner, Agency</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Contact & Calendar Section -->
-<section class="py-32 bg-surface-container-low border-t border-outline-variant/10" id="contact">
-<div class="container mx-auto px-8">
-<div class="grid lg:grid-cols-2 gap-20">
-<!-- Contact Form -->
+<!-- Contact Section -->
+<section class="py-32 bg-surface-container-low" id="contact">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-surface-container-lowest p-12 md:p-20 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2"></div>
+<div class="grid md:grid-cols-2 gap-20 relative z-10">
 <div>
-<h2 class="text-4xl font-extrabold tracking-tight mb-4">Start the Converge.</h2>
-<p class="text-on-surface-variant mb-12">Submit your requirements for a technical overview of how we can architect your growth.</p>
-<form class="space-y-6">
-<div class="grid md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
-<input class="w-full bg-surface-container-highest border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 rounded-lg" placeholder="John Doe" type="text"/>
+<h2 class="text-5xl font-extrabold font-headline mb-8 tracking-tighter">Book A Consultation</h2>
+<p class="text-lg text-on-surface-variant mb-12 max-w-md">Ready to become a master of your digital data? Fill out the form and we will reach out for a discovery conversation</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
 </div>
-<div class="space-y-2">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Work Email</label>
-<input class="w-full bg-surface-container-highest border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 rounded-lg" placeholder="j.doe@enterprise.com" type="email"/>
+<span class="text-on-surface">jeremy@enlightenedinsights.org</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</div>
+<span class="text-on-surface">Toronto, Canada</span>
 </div>
 </div>
-<div class="space-y-2">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Primary Challenge</label>
-<select class="w-full bg-surface-container-highest border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 rounded-lg">
-<option>Campaign Optimization</option>
-<option>Data Architecture</option>
-<option>Marketing Automation</option>
-<option>Other Technical Consult</option>
-</select>
 </div>
-<div class="space-y-2">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Message</label>
-<textarea class="w-full bg-surface-container-highest border-none focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 rounded-lg" placeholder="Describe your current infrastructure bottlenecks..." rows="4"></textarea>
+<form id="contactForm" class="space-y-6">
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Name</label>
+<input 
+  name="name"
+  class="w-full bg-surface-container-highest border-none focus:ring-0 rounded-lg p-4 text-on-surface transition-all border-b-2 border-transparent focus:border-primary" 
+  placeholder="Architect Name" 
+  type="text"
+  required/>
 </div>
-<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-lg font-bold hover:bg-primary transition-all" type="submit">Submit Brief</button>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Email</label>
+<input 
+  name="email"
+  class="w-full bg-surface-container-highest border-none focus:ring-0 rounded-lg p-4 text-on-surface transition-all border-b-2 border-transparent focus:border-primary" 
+  placeholder="email@firm.com" 
+  type="email"
+  required/>
+</div>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Message</label>
+<textarea 
+  name="message"
+  class="w-full bg-surface-container-highest border-none focus:ring-0 rounded-lg p-4 text-on-surface transition-all border-b-2 border-transparent focus:border-primary" 
+  placeholder="Brief project description..." 
+  rows="4"
+  required></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-5 rounded-lg hover:bg-primary transition-all shadow-xl shadow-primary-container/20" type="submit">
+                                Send Inquiry
+                            </button>
 </form>
 </div>
-<!-- Calendar Integration Placeholder -->
-<div class="flex flex-col h-full">
-<div class="bg-surface-container-highest p-8 rounded-xl flex-grow border border-outline-variant/15 shadow-2xl relative overflow-hidden">
-<div class="flex justify-between items-center mb-8">
-<h3 class="text-xl font-bold">Schedule a 15-min Call</h3>
-<span class="text-xs text-primary font-bold px-3 py-1 bg-primary/10 rounded-full">Available Today</span>
-</div>
-<!-- Simple Calendar Mock -->
-<div class="space-y-4">
-<div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-on-surface-variant mb-4">
-<span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-</div>
-<div class="grid grid-cols-7 gap-2 text-center text-sm">
-<div class="p-3 text-on-surface-variant/30">28</div>
-<div class="p-3 text-on-surface-variant/30">29</div>
-<div class="p-3 text-on-surface-variant/30">30</div>
-<div class="p-3 bg-primary/20 text-primary font-bold rounded-lg cursor-pointer">1</div>
-<div class="p-3 bg-primary text-on-primary font-bold rounded-lg cursor-pointer">2</div>
-<div class="p-3 hover:bg-surface-bright rounded-lg cursor-pointer">3</div>
-<div class="p-3 hover:bg-surface-bright rounded-lg cursor-pointer">4</div>
-</div>
-<div class="mt-8 space-y-3">
-<div class="p-4 bg-surface rounded-lg border border-outline-variant/15 flex justify-between items-center cursor-pointer hover:border-primary transition-all">
-<span class="font-bold">09:00 AM - 09:15 AM EST</span>
-<span class="material-symbols-outlined text-primary">event_available</span>
-</div>
-<div class="p-4 bg-surface rounded-lg border border-outline-variant/15 flex justify-between items-center cursor-pointer hover:border-primary transition-all">
-<span class="font-bold">10:30 AM - 10:45 AM EST</span>
-<span class="material-symbols-outlined text-primary">event_available</span>
-</div>
-<div class="p-4 bg-surface rounded-lg border border-outline-variant/15 flex justify-between items-center cursor-pointer hover:border-primary transition-all opacity-50">
-<span class="font-bold">02:00 PM - 02:15 PM EST</span>
-<span class="text-xs uppercase font-bold">Booked</span>
-</div>
-</div>
-</div>
-<div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-surface-container-highest to-transparent pointer-events-none"></div>
-</div>
-<p class="text-center text-xs text-on-surface-variant mt-6">
-                        Technical sessions are led by our Principal Architects.
-                    </p>
-</div>
-</div>
 </div>
 </section>
+</main>
 <!-- Footer -->
-<footer class="bg-[#041010] flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full border-t border-[#1f2c2c]/30">
-<div class="flex flex-col gap-6 mb-8 md:mb-0">
-<div class="flex items-center gap-3">
-<img alt="Enlightened Insights Logo" class="h-8 w-auto rounded-sm opacity-80" src="https://lh3.googleusercontent.com/aida/ADBb0uhPynmS3zi6qLNFZdxRWmE3TLSCpkJPahDjzlJNEuQtd5AGgzwu4MA2no5O-voTEsu3CbT3-G7ByJiygQCQZphgnCVWRVMlMM8IQ8MMNEnpwXpE5R2KyWarPUaDH4oJrB7PjmmA3H5Db8hvEtTsazxXLeC2vPZeqrk7xw6grWsqPCh-SXoh224sHuPlQQcP92ch99jg0PFL0anNc3rnxgmqbwJdczERm-cNMyp6vn3CMdwea2xlf5RIxou249jiyKLGGOsDhWk8MA"/>
-<div class="text-lg font-black text-[#d7e5e5]">Enlightened Insights</div>
+<footer class="bg-[#041010] w-full border-t border-[#152222]/15">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3 mb-8 md:mb-0">
+<img alt="Enlightened Insights Logo" class="h-6 w-auto" src="./images/logo-footer.png"/>
+<span class="text-lg font-black text-[#d7e5e5] font-headline tracking-tighter uppercase">ENLIGHTENED INSIGHTS</span>
 </div>
-<p class="font-['Manrope'] text-xs text-[#d7e5e5]/60 max-w-xs leading-relaxed">
-                Designing structural integrity for the future of digital marketing through autonomous systems and high-precision data architecture.
-            </p>
+<div class="flex flex-wrap justify-center gap-8 mb-8 md:mb-0">
+<a class="font-manrope text-xs tracking-wide uppercase text-[#d7e5e5]/50 hover:text-[#d7e5e5] transition-opacity" href="#about">About</a>
+<a class="font-manrope text-xs tracking-wide uppercase text-[#d7e5e5]/50 hover:text-[#d7e5e5] transition-opacity" href="#services">Services</a>
+<a class="font-manrope text-xs tracking-wide uppercase text-[#d7e5e5]/50 hover:text-[#d7e5e5] transition-opacity" href="#contact">Contact</a>
 </div>
-<div class="flex flex-col items-center md:items-end gap-8">
-<div class="flex flex-wrap justify-center gap-8 font-['Manrope'] text-xs text-[#d7e5e5]/60 uppercase tracking-widest font-bold">
-<a class="hover:text-[#76d5de] transition-all" href="#">Privacy Policy</a>
-<a class="hover:text-[#76d5de] transition-all" href="#">Terms of Service</a>
-<a class="hover:text-[#76d5de] transition-all" href="#">LinkedIn</a>
-<a class="hover:text-[#76d5de] transition-all" href="#contact">Contact</a>
+<div class="text-center md:text-right">
+<p class="font-manrope text-xs tracking-wide uppercase text-[#d7e5e5]/30">© 2024 Enlightened Insights Consulting. All rights reserved.</p>
 </div>
-<div class="font-['Manrope'] text-[10px] text-[#d7e5e5]/40 uppercase tracking-widest">
-                © 2024 Enlightened Insights Consulting. All rights reserved.
-            </div>
 </div>
 </footer>
+
+<!-- Success Modal -->
+<div id="successModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-surface-container-high p-8 rounded-lg max-w-md text-center">
+    <h3 class="text-2xl font-bold text-on-surface mb-4">Thank You!</h3>
+    <p class="text-on-surface-variant mb-6">Your inquiry has been sent. We'll be in touch soon.</p>
+    <button onclick="document.getElementById('successModal').classList.add('hidden')" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold hover:bg-primary transition-all">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = {
+    name: document.querySelector('input[name="name"]').value,
+    email: document.querySelector('input[name="email"]').value,
+    message: document.querySelector('textarea[name="message"]').value
+  };
+  
+  try {
+    // Replace '/api/contact' with your backend endpoint
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    if (response.ok) {
+      document.getElementById('contactForm').reset();
+      document.getElementById('successModal').classList.remove('hidden');
+    } else {
+      alert('Error sending inquiry. Please try again.');
+    }
+  } catch (error) {
+    alert('Error: ' + error.message);
+  }
+});
+</script>
 </body></html>

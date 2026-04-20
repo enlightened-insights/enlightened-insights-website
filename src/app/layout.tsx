@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} h-full`}>
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0..1,0" />
+      </head>
       <body className="min-h-full flex flex-col antialiased bg-surface text-on-surface">
         <Navbar />
         <main className="flex-1">{children}</main>
