@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -28,7 +29,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link
-          href="#hero"
+          href="/"
           className="flex items-center gap-3 text-on-surface"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,7 +49,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="text-sm font-bold px-5 py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-all active:scale-95 duration-200"
           >
             Get in Touch
@@ -87,7 +88,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setMenuOpen(false)}
             className="text-sm font-bold px-4 py-2.5 rounded-lg bg-primary-container text-on-primary-container text-center hover:bg-primary hover:text-on-primary transition-all"
           >
