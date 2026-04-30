@@ -1,53 +1,82 @@
-import type { ContactFormData } from "@/types/contact";
+import type { ContactFormData, ServiceValue } from "@/types/contact";
 
-const brand = {
-  color: "#00818a",
-  name: "Enlightened Insights",
+const SERVICE_LABELS: Record<ServiceValue, string> = {
+  "ai-automation": "AI & Automation",
+  "marketing": "Marketing",
 };
 
-export function confirmationEmail(name: string): string {
+const brand = {
+  name: "Enlightened Insights",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://enlightenedinsights.org",
+};
+
+const SERVICE_INTROS: Record<ServiceValue, string> = {
+  "ai-automation":
+    "We've received your inquiry about AI &amp; automation and our team is already reviewing it. We'll reach out to discuss how we can help streamline your operations and free up your team's time.",
+  "marketing":
+    "We've received your marketing inquiry and our team is already reviewing it. We'll reach out to discuss how we can help you hit your goals and grow your reach.",
+};
+
+export function confirmationEmail(name: string, service?: ServiceValue): string {
+  const firstName = name.split(" ")[0];
+  const intro = service
+    ? SERVICE_INTROS[service]
+    : "We've received your inquiry and our team is already reviewing it. We'll reach out shortly to discuss how we can help.";
+  const logoUrl = `${brand.siteUrl}/logo.png`;
+  const year = new Date().getFullYear();
+
   return `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:system-ui,-apple-system,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 16px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background:#081616;font-family:'Manrope',system-ui,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#081616;padding:40px 16px;">
     <tr><td align="center">
-      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden;">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;border-radius:4px;overflow:hidden;">
+
         <!-- Header -->
         <tr>
-          <td style="background:${brand.color};padding:32px 40px;">
-            <p style="margin:0;color:#ffffff;font-size:20px;font-weight:700;">${brand.name}</p>
-            <p style="margin:4px 0 0;color:rgba(255,255,255,0.8);font-size:13px;">AI Consulting & Strategy</p>
+          <td style="background:linear-gradient(135deg,#00818a,#76d5de);padding:36px 40px;text-align:center;">
+            <img src="${logoUrl}" alt="${brand.name}" width="180" style="display:block;margin:0 auto;max-height:60px;object-fit:contain;" />
           </td>
         </tr>
+
         <!-- Body -->
         <tr>
-          <td style="padding:40px;">
-            <h1 style="margin:0 0 16px;font-size:24px;color:#0f172a;">Thanks for reaching out, ${name}!</h1>
-            <p style="margin:0 0 16px;font-size:15px;color:#475569;line-height:1.6;">
-              We've received your message and our team will review it shortly. You can expect a response
-              from us within <strong>one business day</strong>.
+          <td style="background:#0d1e1e;padding:48px 40px;">
+            <h1 style="margin:0 0 6px;font-size:30px;font-weight:800;color:#d7e5e5;letter-spacing:-0.02em;">
+              Thanks, ${firstName}.
+            </h1>
+            <p style="margin:0 0 32px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#76d5de;">
+              We'll be in touch shortly
             </p>
-            <p style="margin:0 0 32px;font-size:15px;color:#475569;line-height:1.6;">
-              In the meantime, feel free to explore our services or reply to this email with any
-              additional context.
+            <p style="margin:0 0 20px;font-size:15px;color:#94b0b0;line-height:1.75;">
+              ${intro}
             </p>
-            <div style="border-top:1px solid #f1f5f9;padding-top:24px;">
-              <p style="margin:0;font-size:13px;color:#94a3b8;">
-                Best regards,<br>
-                <strong style="color:#0f172a;">The ${brand.name} Team</strong>
-              </p>
-            </div>
+            <p style="margin:0 0 36px;font-size:15px;color:#94b0b0;line-height:1.75;">
+              Expect to hear from us within <strong style="color:#d7e5e5;">two business days</strong>.
+              Feel free to reply to this email if you have anything to add in the meantime.
+            </p>
+            <div style="height:1px;background:#152222;margin-bottom:32px;"></div>
+            <p style="margin:0;font-size:13px;color:#94b0b0;line-height:1.6;">
+              Best,<br>
+              <strong style="color:#d7e5e5;">The Enlightened Insights Team</strong>
+            </p>
           </td>
         </tr>
+
         <!-- Footer -->
         <tr>
-          <td style="background:#f8fafc;padding:20px 40px;border-top:1px solid #f1f5f9;">
-            <p style="margin:0;font-size:12px;color:#94a3b8;text-align:center;">
-              © ${new Date().getFullYear()} ${brand.name}. All rights reserved.
+          <td style="background:#041010;padding:20px 40px;text-align:center;">
+            <p style="margin:0;font-size:12px;color:#3a5555;">
+              © ${year} ${brand.name}. All rights reserved.
             </p>
           </td>
         </tr>
+
       </table>
     </td></tr>
   </table>
@@ -56,7 +85,8 @@ export function confirmationEmail(name: string): string {
 }
 
 export function notificationEmail(data: ContactFormData): string {
-  const { name, email, message } = data;
+  const { name, email, company, service, challenge } = data;
+  const serviceLabel = service ? SERVICE_LABELS[service] : null;
   const timestamp = new Date().toLocaleString("en-US", {
     dateStyle: "full",
     timeStyle: "short",
@@ -93,10 +123,22 @@ export function notificationEmail(data: ContactFormData): string {
                   <a href="mailto:${email}" style="margin:0;font-size:15px;color:${brand.color};text-decoration:none;">${email}</a>
                 </td>
               </tr>
+              ${company ? `<tr>
+                <td style="padding:0 0 20px;border-top:1px solid #f1f5f9;padding-top:20px;">
+                  <p style="margin:0 0 4px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;">Company</p>
+                  <p style="margin:0;font-size:15px;color:#0f172a;font-weight:500;">${company}</p>
+                </td>
+              </tr>` : ""}
+              ${serviceLabel ? `<tr>
+                <td style="border-top:1px solid #f1f5f9;padding-top:20px;padding-bottom:20px;">
+                  <p style="margin:0 0 4px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;">Service Area</p>
+                  <p style="margin:0;font-size:15px;color:#0f172a;font-weight:500;">${serviceLabel}</p>
+                </td>
+              </tr>` : ""}
               <tr>
                 <td style="border-top:1px solid #f1f5f9;padding-top:20px;">
-                  <p style="margin:0 0 8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;">Message</p>
-                  <p style="margin:0;font-size:15px;color:#334155;line-height:1.7;white-space:pre-wrap;">${message}</p>
+                  <p style="margin:0 0 8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;">Challenge</p>
+                  <p style="margin:0;font-size:15px;color:#334155;line-height:1.7;white-space:pre-wrap;">${challenge}</p>
                 </td>
               </tr>
             </table>

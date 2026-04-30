@@ -15,19 +15,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, message } = parsed.data;
+    const { name, email, company, service, challenge } = parsed.data;
 
-    // Send both emails concurrently
     await Promise.all([
       sendEmail({
         to: email,
         subject: `Thank you for reaching out — ${name.split(" ")[0]}, we'll be in touch`,
-        html: confirmationEmail(name),
+        html: confirmationEmail(name, service),
       }),
       sendEmail({
         to: process.env.GMAIL_NOTIFY_ADDRESS!,
         subject: `New contact form submission from ${name}`,
-        html: notificationEmail({ name, email, message }),
+        html: notificationEmail({ name, email, company, service, challenge }),
       }),
     ]);
 
