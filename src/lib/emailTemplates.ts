@@ -8,6 +8,7 @@ const SERVICE_LABELS: Record<ServiceValue, string> = {
 const brand = {
   name: "Enlightened Insights",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://enlightenedinsights.org",
+  color: "#00818a",
 };
 
 const SERVICE_INTROS: Record<ServiceValue, string> = {
