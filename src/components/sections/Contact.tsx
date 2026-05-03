@@ -1,10 +1,5 @@
 "use client";
 
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
