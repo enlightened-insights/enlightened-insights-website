@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -40,6 +46,7 @@ export default function Contact() {
 
       setStatus("success");
       reset();
+      window.dataLayer?.push({ event: "contact_form_submit" });
     } catch (err) {
       setStatus("error");
       setErrorMessage(
