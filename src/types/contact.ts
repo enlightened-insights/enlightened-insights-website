@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const SERVICE_OPTIONS = [
   { value: "ai-automation", label: "AI & Automation" },
-  { value: "marketing", label: "Marketing" },
+  { value: "marketing", label: "Marketing Analytics" },
 ] as const;
 
 export type ServiceValue = (typeof SERVICE_OPTIONS)[number]["value"];
