@@ -4,9 +4,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@/lib/cn";
 import FormField from "@/components/ui/FormField";
 import Button from "@/components/ui/Button";
-import { contactSchema, type ContactFormData } from "@/types/contact";
+import {
+  contactSchema,
+  type ContactFormData,
+  SERVICE_OPTIONS,
+  CHALLENGE_PROMPTS,
+} from "@/types/contact";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -18,10 +24,14 @@ export default function Contact() {
     register,
     handleSubmit,
     reset,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
+
+  const selectedService = watch("service");
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
@@ -54,7 +64,6 @@ export default function Contact() {
     <section id="contact" className="py-32 bg-surface-low">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="bg-surface-lowest p-6 sm:p-10 md:p-20 rounded-lg relative overflow-hidden">
-          {/* Decorative angled background element */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
 
           <div className="grid md:grid-cols-2 gap-20 relative z-10">
@@ -114,24 +123,64 @@ export default function Contact() {
                 >
                   <FormField
                     label="Name"
-                    placeholder="Architect Name"
+                    placeholder="Your Name"
                     error={errors.name?.message}
                     {...register("name")}
                   />
                   <FormField
                     label="Email"
                     type="email"
-                    placeholder="email@firm.com"
+                    placeholder="email@company.com"
                     error={errors.email?.message}
                     {...register("email")}
                   />
                   <FormField
+                    label="Company"
+                    placeholder="Your Company (Optional)"
+                    {...register("company")}
+                  />
+
+                  {/* Service selector */}
+                  <div className="flex flex-col gap-2">
+                    <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                      What Do You Need Help With?
+                    </span>
+                    <div className="grid grid-cols-3 gap-2">
+                      {SERVICE_OPTIONS.map((opt) => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() =>
+                            setValue("service", selectedService === opt.value ? undefined : opt.value, { shouldValidate: true })
+                          }
+                          className={cn(
+                            "px-3 py-2.5 text-xs font-semibold rounded transition-colors border-b-2 text-center",
+                            selectedService === opt.value
+                              ? "bg-primary/10 border-primary text-primary"
+                              : "bg-surface-highest border-outline-variant text-on-surface-muted hover:border-primary/50 hover:text-on-surface"
+                          )}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                    {errors.service && (
+                      <p className="text-xs text-red-400">{errors.service.message}</p>
+                    )}
+                  </div>
+
+                  {/* Dynamic challenge field */}
+                  <FormField
                     as="textarea"
-                    label="Message"
-                    placeholder="Brief project description..."
+                    label="What problem can we help you solve?"
+                    placeholder={
+                      selectedService
+                        ? CHALLENGE_PROMPTS[selectedService]
+                        : "Tell us about what you're looking to achieve."
+                    }
                     rows={4}
-                    error={errors.message?.message}
-                    {...register("message")}
+                    error={errors.challenge?.message}
+                    {...register("challenge")}
                   />
 
                   {status === "error" && (
