@@ -70,7 +70,7 @@ export default function TermsOfServicePage() {
         For questions about these Terms of Service, contact:<br />
         <strong>Enlightened Insights Consulting</strong><br />
         Toronto, Ontario, Canada<br />
-        [insert contact email]
+        jeremy@enlightenedinsights.org
       </p>
     </main>
   );
