@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
         For questions about this Privacy Policy or the App&apos;s data practices, contact:<br />
         <strong>Enlightened Insights Consulting</strong><br />
         Toronto, Ontario, Canada<br />
-        [insert contact email]
+        jeremy@enlightenedinsights.org
       </p>
     </main>
   );
