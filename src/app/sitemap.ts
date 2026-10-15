@@ -9,9 +9,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
+  // The home page and blog index change whenever a post is published.
+  const latestPost = posts.reduce<string | undefined>(
+    (latest, p) => (p.lastModified && (!latest || p.lastModified > latest) ? p.lastModified : latest),
+    undefined,
+  );
   return [
-    { url: SITE_URL, changeFrequency: "monthly", priority: 1 },
-    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.8 },
+    { url: SITE_URL, lastModified: latestPost, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE_URL}/blog`, lastModified: latestPost, changeFrequency: "weekly", priority: 0.8 },
     ...posts,
     { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms-of-service`, changeFrequency: "yearly", priority: 0.2 },

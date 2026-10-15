@@ -4,7 +4,9 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { SITE_URL } from "@/lib/site";
+import JsonLd from "@/components/seo/JsonLd";
+import AiReferralTracker from "@/components/seo/AiReferralTracker";
+import { ORGANIZATION_ID, SITE_DESCRIPTION, SITE_NAME, SITE_URL, organizationJsonLd } from "@/lib/site";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -15,8 +17,31 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Enlightened Insights | AI Marketing & Automation",
-  description:
-    "We help brands scale faster with AI-powered marketing systems — from campaign automation to predictive growth engines.",
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_CA",
+    url: "/",
+    title: "Enlightened Insights | AI Marketing & Automation",
+    description: SITE_DESCRIPTION,
+    images: ["/logo.png"],
+  },
+};
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    organizationJsonLd,
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      inLanguage: "en-CA",
+      publisher: { "@id": ORGANIZATION_ID },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -31,6 +56,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0..1,0" />
       </head>
       <body className="min-h-full flex flex-col antialiased bg-surface text-on-surface">
+        <JsonLd data={siteJsonLd} />
+        <AiReferralTracker />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
