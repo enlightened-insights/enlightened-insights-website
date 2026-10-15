@@ -6,10 +6,16 @@ import html from "remark-html";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
 export interface BlogPostMeta {
   slug: string;
   title: string;
   date: string;
+  updated?: string;
   excerpt: string;
   author?: string;
   coverImage?: string;
@@ -18,6 +24,7 @@ export interface BlogPostMeta {
 
 export interface BlogPost extends BlogPostMeta {
   contentHtml: string;
+  faq: FaqItem[];
 }
 
 function readPostFile(slug: string) {
@@ -43,6 +50,7 @@ export function getAllPostsMeta(): BlogPostMeta[] {
         slug,
         title: data.title ?? slug,
         date: data.date ?? "",
+        updated: data.updated,
         excerpt: data.excerpt ?? "",
         author: data.author,
         coverImage: data.coverImage,
@@ -62,10 +70,12 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       slug,
       title: data.title ?? slug,
       date: data.date ?? "",
+      updated: data.updated,
       excerpt: data.excerpt ?? "",
       author: data.author,
       coverImage: data.coverImage,
       tags: data.tags,
+      faq: Array.isArray(data.faq) ? data.faq : [],
       contentHtml: processed.toString(),
     };
   } catch {

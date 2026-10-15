@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Blog | Enlightened Insights",
   description:
     "Playbooks, teardowns, and field notes on AI marketing, automation, and the operating systems behind modern growth.",
+  alternates: { canonical: "/blog" },
 };
 
 function formatDate(date: string) {
