@@ -5,10 +5,10 @@ export const CONTACT_EMAIL = "jeremy@enlightenedinsights.org";
 // One plain-language sentence that says who we are. Reused in the About
 // section and Organization schema so they never disagree.
 export const SITE_SUMMARY =
-  "Enlightened Insights is a Toronto-based consultancy that builds marketing data systems and AI automation, including SEO and answer engine optimization (AEO) content pipelines.";
+  "Enlightened Insights is a Toronto-based consultancy that builds marketing data systems and AI automation, and optimizes brands' visibility in search engines and AI answers (SEO and AEO).";
 
 export const SITE_DESCRIPTION =
-  "Toronto consultancy building marketing analytics, data pipelines, and AI automation, including SEO and AEO content pipelines that get brands cited by AI.";
+  "Toronto consultancy for marketing analytics, AI automation, and AI search visibility: SEO and AEO that help brands rank in Google and get cited by AI.";
 
 export const CASE_STUDY_PATH = "/blog/claude-code-seo-automation-pipeline";
 export const AEO_GUIDE_PATH = "/blog/answer-engine-optimization";
@@ -31,6 +31,7 @@ export const organizationJsonLd = {
     addressCountry: "CA",
   },
   knowsAbout: [
+    "AI search visibility",
     "Answer engine optimization",
     "Search engine optimization",
     "Marketing analytics",
@@ -50,15 +51,15 @@ export interface FaqItem {
 export const HOME_FAQ: FaqItem[] = [
   {
     q: "What does Enlightened Insights do?",
-    a: "Enlightened Insights builds marketing data systems and AI automation for growth teams: integrated dashboards, data pipelines, website tagging, privacy compliance, team training, and AI content pipelines for SEO and answer engine optimization (AEO). The consultancy is based in Toronto, Canada.",
+    a: "Enlightened Insights builds marketing data systems and AI automation for growth teams: integrated dashboards, data pipelines, website tagging, privacy compliance, team training, and AI search visibility optimization (SEO and answer engine optimization, or AEO). The consultancy is based in Toronto, Canada.",
   },
   {
     q: "What is answer engine optimization (AEO)?",
-    a: "Answer engine optimization (AEO) is the practice of structuring content so AI assistants such as ChatGPT, Perplexity, and Google AI Overviews can extract a passage from your page and cite it. Enlightened Insights builds AEO content pipelines and explains the method in its AEO guide on the blog.",
+    a: "Answer engine optimization (AEO) is the practice of structuring content so AI assistants such as ChatGPT, Perplexity, and Google AI Overviews can extract a passage from your page and cite it. Enlightened Insights offers AEO and SEO search visibility optimization and explains the method in its AEO guide on the blog.",
   },
   {
-    q: "What results have your content pipelines produced?",
-    a: "For a Shopify ecommerce client, the Enlightened Insights SEO content pipeline grew organic clicks by 17.7% in five weeks while impressions fell 10%, at roughly $1.50 to $2.00 in AI model fees per post. The full case study is on the blog.",
+    q: "What search visibility results has Enlightened Insights delivered?",
+    a: "For a Shopify ecommerce client, Enlightened Insights grew organic search clicks by 17.7% in five weeks while impressions fell 10%, by consolidating overlapping posts into stronger, better-targeted ones. The full case study is on the blog.",
   },
   {
     q: "How do I start working with Enlightened Insights?",

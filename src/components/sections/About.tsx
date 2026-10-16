@@ -20,8 +20,8 @@ export default function About() {
           then automates the repetitive work around them.
         </p>
         <p className="text-lg text-on-surface-muted leading-relaxed">
-          For a Shopify ecommerce client, the Enlightened Insights SEO content pipeline grew organic
-          clicks by 17.7% in five weeks.{" "}
+          For a Shopify ecommerce client, Enlightened Insights grew organic search clicks by 17.7%
+          in five weeks.{" "}
           <Link href={CASE_STUDY_PATH} className="text-primary underline underline-offset-4 hover:text-on-surface">
             Read the case study
           </Link>
