@@ -148,7 +148,7 @@ export default async function BlogPostPage({
           className="blog-prose"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
-        <BlogCta />
+        <BlogCta heading={post.ctaHeading} service={post.ctaService} />
       </article>
     </SectionWrapper>
   );

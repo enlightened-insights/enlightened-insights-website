@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/cn";
@@ -32,6 +32,13 @@ export default function Contact() {
   });
 
   const selectedService = watch("service");
+
+  // Links like /?service=ai-search#contact arrive with that service pre-selected.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("service");
+    const match = SERVICE_OPTIONS.find((opt) => opt.value === requested);
+    if (match) setValue("service", match.value);
+  }, [setValue]);
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
