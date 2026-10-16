@@ -4,11 +4,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import JsonLd from "@/components/seo/JsonLd";
-import { AEO_GUIDE_PATH, ORGANIZATION_ID, SITE_URL } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_URL } from "@/lib/site";
 
 // DRAFT: placeholders are visible, the page is noindex, and it is left out of
 // the sitemap and navigation. Set to false once the human-written sections and
-// the Ripenn logo are in, and Ripenn has agreed in writing to be named as a partner.
+// the Ripenn logo are in.
 const DRAFT = true;
 
 const RIPENN_URL = "https://ripenn.ai";
@@ -35,25 +35,6 @@ function Placeholder({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
-const steps = [
-  {
-    title: "Discover",
-    text: "Ripenn builds a brand profile from your website and suggests the prompts buyers are likely to ask AI assistants about your category.",
-  },
-  {
-    title: "Scan",
-    text: "Ripenn runs those prompts across AI engines, stores the full response from each one, and records whether your brand is mentioned and with what sentiment.",
-  },
-  {
-    title: "Benchmark",
-    text: "Ripenn compares your mention rate with competitors' side by side, tracks share of voice over time, and flags the prompts where a competitor wins.",
-  },
-  {
-    title: "Monitor",
-    text: "Ripenn tracks which domains get cited and how visibility trends across engines, with CSV and Excel export for reporting.",
-  },
-];
 
 export default function RipennPartnerPage() {
   const logoReady = fs.existsSync(path.join(process.cwd(), "public", LOGO_PUBLIC_PATH));
@@ -92,46 +73,22 @@ export default function RipennPartnerPage() {
           )}
         </div>
 
-        <Placeholder>
-          Human-written intro: who Ripenn is to you, how you met, and why you chose to work together.
-        </Placeholder>
-
         <div className="blog-prose">
           <h2 id="what-is-ripenn">What is Ripenn?</h2>
           <p>
-            Ripenn is an AI search visibility platform that tracks how AI models such as ChatGPT, Claude,
-            Perplexity, and Gemini talk about your brand, both when buyers are researching a category and when
-            they are asking which option to pick. It shows where your brand is mentioned, where competitors are
-            recommended instead, and which sources the engines cite.
+            Ripenn is an AI search visibility platform. It runs the questions your buyers ask through ChatGPT,
+            Claude, Perplexity, and Gemini, then shows whether your brand is mentioned, which competitors are
+            recommended instead, and which sources the answers cite, tracked over time.
           </p>
-
-          <h2 id="how-ripenn-works">How does Ripenn measure AI visibility?</h2>
-          <p>Ripenn describes its process in four steps:</p>
-          <ul>
-            {steps.map((s) => (
-              <li key={s.title}>
-                <strong>{s.title}.</strong> {s.text}
-              </li>
-            ))}
-          </ul>
-
-          <h2 id="why-measurement">Why does AEO need a measurement tool?</h2>
-          <p>
-            Answer engine optimization has no cross-engine equivalent of Google Search Console. Google and Bing
-            report some AI visibility for their own engines, but ChatGPT, Claude, and Perplexity do not offer
-            publishers a comparable report, so the practical way to see whether you are being cited is to run a
-            fixed set of buyer prompts across engines and record the answers over time. That is the gap a tool
-            like Ripenn fills. Our <Link href={`${AEO_GUIDE_PATH}#measure-aeo`}>AEO guide</Link> covers the
-            measurement problem in more detail.
-          </p>
-
-          <h2 id="working-together">How do Enlightened Insights and Ripenn work together?</h2>
         </div>
 
         <Placeholder>
-          Human-written section: how the partnership works for a client. For example, what Enlightened
-          Insights does (strategy, site and content changes) versus what Ripenn does (tracking and
-          reporting), and what a client gets from using both.
+          Human-written: why you partnered with Ripenn and how you met the founder.
+        </Placeholder>
+
+        <Placeholder>
+          Human-written: how you use Ripenn with clients (what Enlightened Insights does versus what Ripenn
+          measures), and your work testing and improving the tool with its founder.
         </Placeholder>
 
         <Placeholder>
@@ -139,11 +96,17 @@ export default function RipennPartnerPage() {
           Only use images Ripenn has supplied or approved.
         </Placeholder>
 
+        <p className="mt-10 text-sm text-on-surface-muted italic">
+          Disclosure: Enlightened Insights uses Ripenn free of charge in exchange for promoting it, and helps the
+          founder test and improve the tool. We are not paid for referrals.
+        </p>
+
         <div className="mt-12 flex flex-wrap gap-4">
           <a
             href={RIPENN_URL}
             target="_blank"
-            rel="noopener"
+            // Free product use in exchange for promotion is compensation, so the link is marked sponsored.
+            rel="sponsored noopener"
             className="bg-primary-container text-on-primary-container px-7 py-3.5 rounded-lg font-bold hover:bg-primary hover:text-on-primary transition-all"
           >
             Visit ripenn.ai
