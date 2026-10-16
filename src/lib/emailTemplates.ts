@@ -3,6 +3,7 @@ import type { ContactFormData, ServiceValue } from "@/types/contact";
 const SERVICE_LABELS: Record<ServiceValue, string> = {
   "ai-automation": "AI & Automation",
   "marketing": "Marketing",
+  "ai-search": "AI Search Visibility",
 };
 
 const brand = {
@@ -16,6 +17,8 @@ const SERVICE_INTROS: Record<ServiceValue, string> = {
     "We've received your inquiry about AI &amp; automation and our team is already reviewing it. We'll reach out to discuss how we can help streamline your operations and free up your team's time.",
   "marketing":
     "We've received your marketing inquiry and our team is already reviewing it. We'll reach out to discuss how we can help you hit your goals and grow your reach.",
+  "ai-search":
+    "We've received your inquiry about AI search visibility and our team is already reviewing it. We'll reach out to discuss how your brand shows up in Google and in AI assistants like ChatGPT and Perplexity, and what it would take to be cited more often.",
 };
 
 export function confirmationEmail(name: string, service?: ServiceValue): string {

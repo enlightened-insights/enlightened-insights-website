@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-surface-lowest py-10">
@@ -11,9 +13,10 @@ export default function Footer() {
           © {new Date().getFullYear()} Enlightened Insights. All rights reserved.
         </p>
         <div className="flex gap-6 text-sm">
-          <a href="#services" className="text-on-surface-muted hover:text-primary transition-colors">Services</a>
-          <a href="#testimonials" className="text-on-surface-muted hover:text-primary transition-colors">Testimonials</a>
-          <a href="#contact" className="text-on-surface-muted hover:text-primary transition-colors">Contact</a>
+          <Link href="/#services" className="text-on-surface-muted hover:text-primary transition-colors">Services</Link>
+          <Link href="/#testimonials" className="text-on-surface-muted hover:text-primary transition-colors">Testimonials</Link>
+          <Link href="/blog" className="text-on-surface-muted hover:text-primary transition-colors">Blog</Link>
+          <Link href="/#contact" className="text-on-surface-muted hover:text-primary transition-colors">Contact</Link>
         </div>
       </div>
     </footer>

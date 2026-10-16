@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { getAllPostSlugs, getPostBySlug, type BlogPost } from "@/lib/blog";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
 interface Params {
   slug: string;
@@ -56,6 +56,7 @@ function buildJsonLd(post: BlogPost) {
   const url = `${SITE_URL}/blog/${post.slug}`;
   const organization = {
     "@type": "Organization",
+    "@id": ORGANIZATION_ID,
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,

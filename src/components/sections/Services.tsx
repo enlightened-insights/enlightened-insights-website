@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { AEO_GUIDE_PATH, CASE_STUDY_PATH } from "@/lib/site";
+
 const services = [
   {
     icon: "hub",
@@ -48,6 +51,27 @@ export default function Services() {
           <h2 className="text-5xl font-extrabold tracking-tighter text-on-surface">
             Our Services
           </h2>
+        </div>
+
+        {/* Featured: AI search visibility, the work the blog documents */}
+        <div className="p-10 md:p-12 mb-8 rounded-lg bg-surface-container border-l-2 border-primary">
+          <span className="material-symbols-outlined text-primary text-4xl mb-6 block">
+            travel_explore
+          </span>
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">AI Search Visibility (AEO &amp; SEO)</h3>
+          <p className="text-on-surface-muted leading-relaxed max-w-3xl mb-6">
+            Search visibility optimization for both search engines and AI answers. We make your site
+            and content easy to find, quote, and trust, so you rank in Google and get cited by AI
+            assistants such as ChatGPT, Perplexity, and Google AI Overviews.
+          </p>
+          <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold">
+            <Link href={CASE_STUDY_PATH} className="text-primary hover:text-on-surface transition-colors">
+              Search visibility case study &rarr;
+            </Link>
+            <Link href={AEO_GUIDE_PATH} className="text-primary hover:text-on-surface transition-colors">
+              What is answer engine optimization? &rarr;
+            </Link>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
