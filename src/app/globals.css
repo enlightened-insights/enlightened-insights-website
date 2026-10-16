@@ -112,6 +112,23 @@ body {
   border-radius: 6px;
   margin: 1.5em auto;
 }
+.blog-prose h2,
+.blog-prose h3 { scroll-margin-top: 7rem; }
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid #3d5555;
+  padding: 0.6em 0.8em;
+  text-align: left;
+  vertical-align: top;
+}
+.blog-prose th { color: #f4feff; font-weight: 600; background: rgba(118, 213, 222, 0.08); }
 .blog-prose hr {
   border: none;
   border-top: 1px solid #3d5555;

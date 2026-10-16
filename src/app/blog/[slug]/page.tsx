@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllPostSlugs, getPostBySlug, type BlogPost } from "@/lib/blog";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 interface Params {
   slug: string;
@@ -23,6 +24,18 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Enlightened Insights`,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${slug}`,
+      siteName: SITE_NAME,
+      publishedTime: post.date || undefined,
+      modifiedTime: post.updated || post.date || undefined,
+      tags: post.tags,
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
   };
 }
 
@@ -37,6 +50,48 @@ function formatDate(date: string) {
   });
 }
 
+// Structured data for search engines and answer engines: the article itself,
+// plus an FAQPage when the post's frontmatter lists the FAQ shown on the page.
+function buildJsonLd(post: BlogPost) {
+  const url = `${SITE_URL}/blog/${post.slug}`;
+  const organization = {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+  };
+  const isPerson = post.author && !/team|enlightened insights/i.test(post.author);
+  const blocks: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      url,
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      datePublished: post.date,
+      dateModified: post.updated || post.date,
+      author: isPerson ? { "@type": "Person", name: post.author } : organization,
+      publisher: organization,
+      ...(post.coverImage ? { image: `${SITE_URL}${post.coverImage}` } : {}),
+      ...(post.tags?.length ? { keywords: post.tags.join(", ") } : {}),
+      inLanguage: "en-CA",
+    },
+  ];
+  if (post.faq.length) {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    });
+  }
+  return blocks;
+}
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -46,8 +101,16 @@ export default async function BlogPostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
+  const showUpdated = post.updated && post.updated !== post.date;
+
   return (
     <SectionWrapper className="pt-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildJsonLd(post)).replace(/</g, "\\u003c"),
+        }}
+      />
       <article className="max-w-3xl mx-auto">
         <Link
           href="/blog"
@@ -59,7 +122,13 @@ export default async function BlogPostPage({
         <header className="mb-10">
           {post.date && (
             <p className="text-xs font-medium uppercase tracking-widest text-on-surface-muted mb-4">
-              {formatDate(post.date)}
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {showUpdated && (
+                <>
+                  {" · Updated "}
+                  <time dateTime={post.updated}>{formatDate(post.updated!)}</time>
+                </>
+              )}
               {post.author ? ` · ${post.author}` : ""}
             </p>
           )}
