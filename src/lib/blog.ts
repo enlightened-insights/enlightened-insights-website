@@ -25,6 +25,9 @@ export interface BlogPostMeta {
 export interface BlogPost extends BlogPostMeta {
   contentHtml: string;
   faq: FaqItem[];
+  // Optional per-post overrides for the sticky consultation bar.
+  ctaHeading?: string;
+  ctaService?: string;
 }
 
 function readPostFile(slug: string) {
@@ -76,6 +79,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       coverImage: data.coverImage,
       tags: data.tags,
       faq: Array.isArray(data.faq) ? data.faq : [],
+      ctaHeading: data.ctaHeading,
+      ctaService: data.ctaService,
       contentHtml: processed.toString(),
     };
   } catch {

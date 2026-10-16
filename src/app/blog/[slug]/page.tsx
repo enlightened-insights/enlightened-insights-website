@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import BlogCta from "@/components/blog/BlogCta";
 import { getAllPostSlugs, getPostBySlug, type BlogPost } from "@/lib/blog";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -147,6 +148,7 @@ export default async function BlogPostPage({
           className="blog-prose"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
+        <BlogCta heading={post.ctaHeading} service={post.ctaService} />
       </article>
     </SectionWrapper>
   );
