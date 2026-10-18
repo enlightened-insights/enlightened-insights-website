@@ -69,6 +69,11 @@ export default function RipennPartnerPage() {
             . Ripenn is essential to our AEO workflows because it helps us understand how our clients stack up
             against competitors in AI search, and what sorts of queries we need to optimize content for.
           </p>
+          <p>
+            We love Ripenn because marketing data and analytics nerds need to track and quantify everything.
+            Ripenn starts with an audit of a site&apos;s AI visibility against its competitors, then tracks
+            performance over time, so we can see how each change to a site affects its visibility.
+          </p>
 
           <h2 id="case-study">Case study: AEO with Ripenn</h2>
         </div>
