@@ -5,6 +5,8 @@ updated: "2026-10-16"
 excerpt: "SEO ranks pages; AEO gets passages cited. Ranking vs citation data, a side-by-side comparison, and six rules that flipped when we rebuilt our SEO pipeline."
 author: "Enlightened Insights Team"
 tags: ["aeo", "seo", "ai-search", "claude-code", "content-pipeline"]
+ctaHeading: "Want to show up in AI answers as well as search results?"
+ctaService: "ai-search"
 faq:
   - q: "Is AEO just a rebrand of SEO?"
     a: "No. Answer engine optimization (AEO) changes the unit from ranking pages to extracting citable passages, so structure, entity clarity, and in-sentence sourcing matter more than keyword tuning. Google treats its own AI features as an extension of SEO, but the content rules and the measurement layer differ."

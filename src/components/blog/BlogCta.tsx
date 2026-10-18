@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const DEFAULT_HEADING = "Ready to bring your AEO to the next level?";
-const DEFAULT_SERVICE = "ai-search";
+// Fallback for posts without their own ctaHeading; deliberately not tied to one service.
+const DEFAULT_HEADING = "Want help putting this into practice?";
 
 const noSubscribe = () => () => {};
 
@@ -16,33 +16,40 @@ function readDismissed(): boolean {
   }
 }
 
-// Sticky consultation bar for blog posts. Slides in once the reader is a
-// quarter of the way down, can be dismissed for the session, and pre-selects
+// Sticky consultation bar for blog posts. Slides in after 8 seconds or once the
+// reader is 10% of the way down, whichever comes first, can be dismissed for the session, and pre-selects
 // the matching service on the contact form. Posts can override the heading
 // and service with `ctaHeading` / `ctaService` in their frontmatter.
 export default function BlogCta({
   heading = DEFAULT_HEADING,
-  service = DEFAULT_SERVICE,
+  service,
 }: {
   heading?: string;
-  service?: string;
+  service?: string; // contact-form option to pre-select; omit for none
 }) {
   // Server render assumes not dismissed; the client reads the session after hydration.
   const dismissedEarlier = useSyncExternalStore(noSubscribe, readDismissed, () => false);
   const [dismissedNow, setDismissedNow] = useState(false);
-  const [scrolledIn, setScrolledIn] = useState(false);
+  // Most readers leave a post within half a minute, so the bar shows early and
+  // then stays put rather than hiding again when they scroll back up.
+  const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
+    if (triggered) return;
+    const show = () => setTriggered(true);
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolledIn(max > 0 && window.scrollY / max > 0.25);
+      if (max > 0 && window.scrollY / max > 0.1) show();
     };
-    onScroll();
+    const timer = window.setTimeout(show, 8000);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [triggered]);
 
-  const visible = scrolledIn && !dismissedEarlier && !dismissedNow;
+  const visible = triggered && !dismissedEarlier && !dismissedNow;
 
   const dismiss = () => {
     setDismissedNow(true);
@@ -63,7 +70,7 @@ export default function BlogCta({
       <div className="max-w-3xl mx-auto flex items-center gap-4 rounded-lg bg-surface-bright/95 backdrop-blur-md shadow-2xl ring-1 ring-primary/20 px-5 py-3">
         <p className="flex-1 text-sm md:text-base font-semibold text-on-surface">{heading}</p>
         <Link
-          href={`/?service=${encodeURIComponent(service)}#contact`}
+          href={service ? `/?service=${encodeURIComponent(service)}#contact` : "/#contact"}
           tabIndex={visible ? 0 : -1}
           onClick={() =>
             window.dataLayer?.push({ event: "cta_click", cta_placement: "sticky", page: window.location.pathname })

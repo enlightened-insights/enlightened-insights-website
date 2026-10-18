@@ -4,6 +4,8 @@ date: "2026-04-29"
 excerpt: "Walkthrough of a real Claude Code, n8n, and Shopify Admin API content pipeline that lifted a Shopify ecommerce client's organic clicks 18% in five weeks"
 author: "Enlightened Insights Team"
 tags: ["seo", "ai-automation", "claude-code", "n8n", "shopify"]
+ctaHeading: "Want an SEO content pipeline like this for your store?"
+ctaService: "ai-search"
 ---
 
 ![Laptop on a desk with a code editor on screen and a coffee mug beside it](/blog/hero-laptop.jpg)
