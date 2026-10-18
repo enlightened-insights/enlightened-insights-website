@@ -16,6 +16,7 @@ export default function Footer() {
           <Link href="/#services" className="text-on-surface-muted hover:text-primary transition-colors">Services</Link>
           <Link href="/#testimonials" className="text-on-surface-muted hover:text-primary transition-colors">Testimonials</Link>
           <Link href="/blog" className="text-on-surface-muted hover:text-primary transition-colors">Blog</Link>
+          <Link href="/partners" className="text-on-surface-muted hover:text-primary transition-colors">Partners</Link>
           <Link href="/#contact" className="text-on-surface-muted hover:text-primary transition-colors">Contact</Link>
         </div>
       </div>
