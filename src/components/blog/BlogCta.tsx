@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const DEFAULT_HEADING = "Ready to bring your AEO to the next level?";
-const DEFAULT_SERVICE = "ai-search";
+// Fallback for posts without their own ctaHeading; deliberately not tied to one service.
+const DEFAULT_HEADING = "Want help putting this into practice?";
 
 const noSubscribe = () => () => {};
 
@@ -22,10 +22,10 @@ function readDismissed(): boolean {
 // and service with `ctaHeading` / `ctaService` in their frontmatter.
 export default function BlogCta({
   heading = DEFAULT_HEADING,
-  service = DEFAULT_SERVICE,
+  service,
 }: {
   heading?: string;
-  service?: string;
+  service?: string; // contact-form option to pre-select; omit for none
 }) {
   // Server render assumes not dismissed; the client reads the session after hydration.
   const dismissedEarlier = useSyncExternalStore(noSubscribe, readDismissed, () => false);
@@ -70,7 +70,7 @@ export default function BlogCta({
       <div className="max-w-3xl mx-auto flex items-center gap-4 rounded-lg bg-surface-bright/95 backdrop-blur-md shadow-2xl ring-1 ring-primary/20 px-5 py-3">
         <p className="flex-1 text-sm md:text-base font-semibold text-on-surface">{heading}</p>
         <Link
-          href={`/?service=${encodeURIComponent(service)}#contact`}
+          href={service ? `/?service=${encodeURIComponent(service)}#contact` : "/#contact"}
           tabIndex={visible ? 0 : -1}
           onClick={() =>
             window.dataLayer?.push({ event: "cta_click", cta_placement: "sticky", page: window.location.pathname })

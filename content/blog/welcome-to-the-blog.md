@@ -4,6 +4,7 @@ date: "2026-04-27"
 excerpt: "A new home for sharp takes on digital analytics, AI automation, and the strategies behind modern eCommerce growth."
 author: "Enlightened Insights Team"
 tags: ["announcements", "ai-marketing"]
+ctaHeading: "Want help with your marketing data or automation?"
 ---
 
 We're not ashamed to say that much of our blog content was AI generated (but not this sentence). But we are not churning out slop, we are using complex multi-step agentic flows to build compelling and informative content
