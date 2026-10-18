@@ -16,8 +16,8 @@ function readDismissed(): boolean {
   }
 }
 
-// Sticky consultation bar for blog posts. Slides in once the reader is a
-// quarter of the way down, can be dismissed for the session, and pre-selects
+// Sticky consultation bar for blog posts. Slides in after 8 seconds or once the
+// reader is 10% of the way down, whichever comes first, can be dismissed for the session, and pre-selects
 // the matching service on the contact form. Posts can override the heading
 // and service with `ctaHeading` / `ctaService` in their frontmatter.
 export default function BlogCta({
@@ -30,19 +30,26 @@ export default function BlogCta({
   // Server render assumes not dismissed; the client reads the session after hydration.
   const dismissedEarlier = useSyncExternalStore(noSubscribe, readDismissed, () => false);
   const [dismissedNow, setDismissedNow] = useState(false);
-  const [scrolledIn, setScrolledIn] = useState(false);
+  // Most readers leave a post within half a minute, so the bar shows early and
+  // then stays put rather than hiding again when they scroll back up.
+  const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
+    if (triggered) return;
+    const show = () => setTriggered(true);
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolledIn(max > 0 && window.scrollY / max > 0.25);
+      if (max > 0 && window.scrollY / max > 0.1) show();
     };
-    onScroll();
+    const timer = window.setTimeout(show, 8000);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [triggered]);
 
-  const visible = scrolledIn && !dismissedEarlier && !dismissedNow;
+  const visible = triggered && !dismissedEarlier && !dismissedNow;
 
   const dismiss = () => {
     setDismissedNow(true);
