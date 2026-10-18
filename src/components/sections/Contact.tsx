@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/cn";
 import FormField from "@/components/ui/FormField";
 import Button from "@/components/ui/Button";
+import HtmlBlock from "@/components/ui/HtmlBlock";
 import {
   contactSchema,
   type ContactFormData,
@@ -16,7 +17,7 @@ import {
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function Contact() {
+export default function Contact({ introHtml }: { introHtml: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -74,30 +75,8 @@ export default function Contact() {
           <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
 
           <div className="grid md:grid-cols-2 gap-20 relative z-10">
-            {/* Left column — info */}
-            <div>
-              <h2 className="text-5xl font-extrabold tracking-tighter mb-8">
-                Book A Consultation
-              </h2>
-              <p className="text-lg text-on-surface-muted mb-12 max-w-md">
-                Ready to become a master of your digital data? Fill out the form
-                and we will reach out for a discovery conversation.
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg flex-shrink-0">
-                    <span className="material-symbols-outlined text-primary">mail</span>
-                  </div>
-                  <span className="text-on-surface">jeremy@enlightenedinsights.org</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg flex-shrink-0">
-                    <span className="material-symbols-outlined text-primary">location_on</span>
-                  </div>
-                  <span className="text-on-surface">Toronto, Canada</span>
-                </div>
-              </div>
-            </div>
+            {/* Left column: text from content/home/06-contact.html */}
+            <HtmlBlock html={introHtml} />
 
             {/* Right column — form */}
             <div>
