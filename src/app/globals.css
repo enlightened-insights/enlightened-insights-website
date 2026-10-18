@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Hand-edited page content uses Tailwind classes too. */
+@source "../../content";
 
 @theme inline {
   /* ── Font ── */
