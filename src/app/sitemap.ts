@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, lastModified: latestPost, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE_URL}/blog`, lastModified: latestPost, changeFrequency: "weekly", priority: 0.8 },
     ...posts,
+    { url: `${SITE_URL}/partners`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/partners/ripenn`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms-of-service`, changeFrequency: "yearly", priority: 0.2 },
   ];
